@@ -1,0 +1,98 @@
+Relatório Consolidado
+====================
+-----------------------------
+Data do Sistema: 2024/06/27 14:10
+Data do Primeiro Registro: 01/01/2023
+Data do Último Registro: 31/01/2023
+Total de Itens Diferentes Vendidos: 66
+Primeiras linhas do arquivo backup-dados-20240627.csv:
+id,produto,quantidade,preço,data
+1,camiseta,2,29.90,01/01/2023
+2,calça,5,80.00,02/01/2023
+3,sapato,3,100.00,03/01/2023
+4,meia,20,5.00,04/01/2023
+5,cinto,8,15.00,05/01/2023
+6,camisa,7,40.00,06/01/2023
+7,bermuda,6,50.00,07/01/2023
+8,tênis,4,120.00,08/01/2023
+9,bone,12,10.00,09/01/2023
+-----------------------------
+Data do Sistema: 2024/06/27 14:15
+Data do Primeiro Registro: 01/01/2023
+Data do Último Registro: 31/01/2023
+Total de Itens Diferentes Vendidos: 66
+Primeiras linhas do arquivo backup-dados-20240627.csv:
+id,produto,quantidade,preço,data
+1,camiseta,2,29.90,01/01/2023
+2,calça,6,80.00,02/01/2023
+3,sapato,23,100.00,03/01/2023
+4,meia,20,5.00,04/01/2023
+5,cinto,2,35.00,05/01/2023
+6,camisa,7,60.00,06/01/2023
+7,bermuda,6,50.00,07/01/2023
+8,tênis,4,130.00,08/01/2023
+9,bone,12,30.00,09/01/2023
+-----------------------------
+Data do Sistema: 2024/06/27 14:20
+Data do Primeiro Registro: 01/01/2024
+Data do Último Registro: 20/03/2023
+Total de Itens Diferentes Vendidos: 56
+Primeiras linhas do arquivo backup-dados-20240627.csv:
+id,produto,quantidade,preço,data
+1,casaco,5,29.90,01/01/2024
+2,bermuda,2,80.00,02/01/2024
+3,tênis,23,100.00,03/01/2024
+4,meia,20,5.00,04/01/2024
+5,cinto,2,35.00,05/01/2024
+6,camisa,7,60.00,06/01/2024
+7,bermuda,6,50.00,07/01/2024
+8,tênis,4,130.00,08/01/2024
+9,cinto,12,30.00,09/01/2024
+-----------------------------
+Data do Sistema: 2024/06/27 14:30
+Data do Primeiro Registro: 01/05/2024
+Data do Último Registro: 20/03/2023
+Total de Itens Diferentes Vendidos: 56
+Primeiras linhas do arquivo backup-dados-20240627.csv:
+id,produto,quantidade,preço,data
+1,casaco,1,79.90,01/05/2024
+2,bermuda,2,80.00,02/05/2024
+3,tênis,23,100.00,03/05/2024
+4,meia,20,5.00,04/05/2024
+5,cinto,4,35.00,05/05/2024
+6,camisa,2,60.00,06/05/2024
+7,bermuda,1,50.00,07/05/2024
+8,tênis,4,130.00,08/05/2024
+9,cinto,2,30.00,09/05/2024
+-----------------------------
+Data do Sistema: 2024/06/27 14:37
+Data do Primeiro Registro: 01/06/2024
+Data do Último Registro: 
+Total de Itens Diferentes Vendidos: 53
+Primeiras linhas do arquivo backup-dados-20240627.csv:
+id,produto,quantidade,preço,data
+1,casaco,5,99.90,01/06/2024
+2,bermuda,4,60.00,02/06/2024
+3,tênis,13,120.00,03/06/2024
+4,meia,10,8.00,04/06/2024
+5,cinto,2,35.00,05/06/2024
+6,camisa,5,60.00,06/06/2024
+7,bermuda,3,50.00,07/06/2024
+8,tênis,4,230.00,08/06/2024
+9,cinto,3,30.00,09/06/2024
+-----------------------------
+Data do Sistema: 2024/06/27 14:40
+Data do Primeiro Registro: 01/06/2024
+Data do Último Registro: 
+Total de Itens Diferentes Vendidos: 53
+Primeiras linhas do arquivo backup-dados-20240627.csv:
+id,produto,quantidade,preço,data
+1,casaco,5,99.90,01/06/2024
+2,bermuda,4,60.00,02/06/2024
+3,tênis,13,120.00,03/06/2024
+4,meia,10,8.00,04/06/2024
+5,cinto,2,35.00,05/06/2024
+6,camisa,5,60.00,06/06/2024
+7,bermuda,3,50.00,07/06/2024
+8,tênis,4,230.00,08/06/2024
+9,cinto,3,30.00,09/06/2024
