@@ -32,6 +32,6 @@ crontab -e
 ```shell
 Ex: 27 15 * * 1-4 /home/user/ecommerce/processamento_de_vendas.sh >> /home/user/ecommerce/processamento_de_vendas.log 2>&1
 ```
-- Após ter executadoo script processamento_de_vendas.sh pelo menos três vezes, execute o script consolidador_de_processamento_de_vendas.sh para obter o relatório final.
+- Após ter executadoo script processamento_de_vendas.sh pelo menos três vezes, execute manualmente o script consolidador_de_processamento_de_vendas.sh para obter o relatório final.
 
 
