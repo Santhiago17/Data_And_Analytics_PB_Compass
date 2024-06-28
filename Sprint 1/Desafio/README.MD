@@ -10,6 +10,8 @@ Foi criado este repositório seguindo as orientações do desafio, baseando-se n
 
 ### Desafio Linux / Markdown.
 
+[Scripts no formato txt.](./Linux%20e%20Markdown/entrega.txt)
+
 #### Etapas para reexecução do desafio
 
 - Fazer o download do arquivo dados_de_vendas.csv
