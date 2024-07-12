@@ -28,6 +28,8 @@ Após feito o desenho do modelo relacional, foi dado início a criação do mode
 
 ### Modelagem Dimensional
 
+O modelo dimensional segue o esquema estrela, onde uma tabela de fatos central está conectada a várias tabelas dimensionais. Este tipo de relacionamento é 1 para N, onde um fato está ligado a um produto, mas um produto pode estar ligado a diversos fatos.
+
 #### Dimensões:
 
 A dimensão `Cliente` armazena informações detalhadas sobre os clientes que realizam locações. Isso nos permite analisar as locações por diferentes características dos clientes, como cidade, estado e país.
