@@ -8,20 +8,6 @@ A tabela tb_locacao foi subdividida em 5 novas tabelas que são: Carro, Cliente,
 
 Após isso foram inseridos os respectivos dados da tabela tb_locacao para as novas tabelas. Na tabela Carro haviam alguns itens duplicados na coluna 'idCarro', então foi necessário realizar um tratamento de dados na hora da inserção.
 
-```sql
-WITH CarroCTE AS (
-    SELECT idCarro, kmCarro, classiCarro, marcaCarro, modeloCarro, anoCarro, idCombustivel,
-           ROW_NUMBER() OVER (PARTITION BY idCarro ORDER BY idCarro) AS rn
-    FROM tb_locacao
-)
-INSERT INTO Carro (idCarro, kmCarro, classiCarro, marcaCarro, modeloCarro, anoCarro, idCombustivel)
-SELECT idCarro, kmCarro, classiCarro, marcaCarro, modeloCarro, anoCarro, idCombustivel
-FROM CarroCTE
-WHERE rn = 1;
-
-
-```
-
 Após cada inserção em suas respectivas tabelas, foi identificado que todas as regras de normalização F1N,F2N e F3N foram atendidas com sucesso. Então partimos para a criação do desenho do modelo relacional.
 
 Após feito o desenho do modelo relacional, foi dado início a criação do modelo dimensional com as tabelas fato e dimensão.
