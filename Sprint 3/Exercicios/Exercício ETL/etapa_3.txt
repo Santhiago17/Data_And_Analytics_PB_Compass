@@ -1,0 +1,2 @@
+Ator/Atriz com maior media de receita por filme: Anthony Daniels
+Media de receita por filme: 451.80
