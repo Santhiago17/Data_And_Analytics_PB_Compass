@@ -35,7 +35,7 @@ pip install pandas matplotlib
 O dataset `googleplaystore.csv` contém informações sobre aplicativos disponíveis no Google Play Store, incluindo colunas como `App`, `Category`, `Rating`, `Reviews`, `Size`, `Installs`, `Type`, `Price`, `Content Rating`, `Genres`, `Last Updated`, `Current Ver`, e `Android Ver`.
 
 ### Resumo
-
+jjjjjhhjkjjj
 Este projeto fornece uma análise abrangente do dataset do Google Play Store, incluindo a limpeza dos dados, cálculos estatísticos e visualizações detalhadas. Utilizamos o Python juntamente com as bibliotecas pandas e matplotlib para realizar essas análises de forma eficiente.
 
 
