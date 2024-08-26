@@ -1,5 +1,11 @@
 A base de dados analisada refere-se a informações detalhadas sobre produtos e prestadores hospitalares no estado da Paraíba (PB), retiradas de uma base de dados pública disponibilizada pelo governo brasileiro. Ela contém registros que relacionam operadoras de saúde, seus planos, e os estabelecimentos de saúde associados, incluindo hospitais e clínicas.
 
+### Sumário
+
+[Arquivo de configuração de credenciais AWS](./config.py)
+[Arquivo python com as respectivas consultas e tratamento de dados](./script-s3.py)
+[Arquivo CSV com resultado das consultas](./resultados.csv)
+
 
 ## 1. Importação de Bibliotecas
 
