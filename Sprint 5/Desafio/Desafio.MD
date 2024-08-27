@@ -1,5 +1,11 @@
 A base de dados analisada refere-se a informações detalhadas sobre produtos e prestadores hospitalares no estado da Paraíba (PB), retiradas de uma base de dados pública disponibilizada pelo governo brasileiro. Ela contém registros que relacionam operadoras de saúde, seus planos, e os estabelecimentos de saúde associados, incluindo hospitais e clínicas.
 
+### Link para base de dados utilizada.
+
+- O Link leva para um arquivo zip com todos os estados, porém o estado utilizado para análise foi o da Paraíba.
+
+https://dados.gov.br/dados/conjuntos-dados/produtos-e-prestadores-hospitalares		
+
 ### Sumário
 
 [Arquivo de configuração de credenciais AWS](./config.py)
