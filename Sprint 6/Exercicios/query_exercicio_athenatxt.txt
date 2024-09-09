@@ -1,0 +1,30 @@
+WITH Decades AS (
+    SELECT 
+        nome, 
+        total, 
+        FLOOR(ano / 10) * 10 AS decade 
+    FROM 
+        meubanco.exercicio_santhiago
+    WHERE 
+        ano >= 1950 
+),
+RankedNames AS (
+    SELECT 
+        nome, 
+        total, 
+        decade, 
+        ROW_NUMBER() OVER (PARTITION BY decade ORDER BY total DESC) AS rank 
+    FROM 
+        Decades
+)
+SELECT 
+    nome, 
+    total, 
+    decade 
+FROM 
+    RankedNames
+WHERE 
+    rank <= 3 
+ORDER BY 
+    decade, 
+    total DESC;
