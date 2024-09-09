@@ -2,13 +2,13 @@
 
 Sumário evidências:
 
-[Arquivo python que lê e carrega os arquivos para o S3](./carrega_dados.py)
+[Arquivo python que lê e carrega os arquivos para o S3](./carrega_dados.py\n)
 [Arquivo docker utilizado para execução do desafio](./Dockerfile)
 
 ------------
-[Criação da imagem utilizada](./Cria%20imagem%20definitivo.png)
-[Dados sendo enviados para o bucket](./Dados%20enviados%20para%20o%20bucket.png)
-[Arquivo Movies no bucket](./movies_CSV.png)
+[Criação da imagem utilizada](./Cria%20imagem%20definitivo.png\n)
+[Dados sendo enviados para o bucket](./Dados%20enviados%20para%20o%20bucket.png\n)
+[Arquivo Movies no bucket](./movies_CSV.png\n)
 [Arquivo Series no bucket](./series_csv.png)
 
 ------------
