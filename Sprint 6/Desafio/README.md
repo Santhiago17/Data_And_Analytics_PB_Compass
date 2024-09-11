@@ -1,5 +1,13 @@
 ### Guia sobre cada etapa e organização das evidências do desafio referente a esta Sprint
 
+Perguntas a serem respondidas com o desafio final:
+
+1. Quais as décadas com filmes de drama/romance de maior lucro e quais são esses filmes?
+2. Qual é a média das notas dos filmes ao longo dos anos?
+3. Qual é a correlação entre a duração do filme e a nota média?
+4. Quais são os anos com maior número de lançamentos de filmes de drama/romance?
+
+
 Sumário evidências:
 
 * [Arquivo python que lê e carrega os arquivos para o S3](./carrega_dados.py)
