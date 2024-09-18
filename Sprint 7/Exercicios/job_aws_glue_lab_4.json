@@ -1,0 +1,54 @@
+{
+	"jobConfig": {
+		"name": "job_aws_glue_lab_4",
+		"description": "",
+		"role": "arn:aws:iam::009160030622:role/AWSGlueServiceRole-Lab4",
+		"command": "glueetl",
+		"version": "3.0",
+		"runtime": null,
+		"workerType": "G.1X",
+		"numberOfWorkers": 2,
+		"maxCapacity": 2,
+		"jobRunQueuingEnabled": false,
+		"maxRetries": 0,
+		"timeout": 5,
+		"maxConcurrentRuns": 1,
+		"security": "none",
+		"scriptName": "job_aws_glue_lab_4.py",
+		"scriptLocation": "s3://aws-glue-assets-009160030622-us-east-1/scripts/",
+		"language": "python-3",
+		"spark": false,
+		"sparkConfiguration": "standard",
+		"jobParameters": [
+			{
+				"key": "--S3_INPUT_PATH",
+				"value": "s3://lab-glue-santhiago/input/nomes.csv",
+				"existing": false
+			},
+			{
+				"key": "--S3_TARGET_PATH",
+				"value": "s3://lab-glue-santhiago/frequencia_registro_nomes_eua/",
+				"existing": false
+			}
+		],
+		"tags": [],
+		"jobMode": "DEVELOPER_MODE",
+		"createdOn": "2024-09-17T17:29:20.626Z",
+		"developerMode": true,
+		"connectionsList": [],
+		"temporaryDirectory": "s3://aws-glue-assets-009160030622-us-east-1/temporary/",
+		"logging": true,
+		"glueHiveMetastore": true,
+		"etlAutoTuning": true,
+		"metrics": true,
+		"observabilityMetrics": true,
+		"bookmark": "job-bookmark-disable",
+		"sparkPath": "s3://aws-glue-assets-009160030622-us-east-1/sparkHistoryLogs/",
+		"flexExecution": false,
+		"minFlexWorkers": null,
+		"maintenanceWindow": null
+	},
+	"hasBeenSaved": false,
+	"usageProfileName": null,
+	"script": "import sys\nfrom awsglue.transforms import *\nfrom awsglue.utils import getResolvedOptions\nfrom pyspark.context import SparkContext\nfrom awsglue.context import GlueContext\nfrom awsglue.job import Job\nfrom pyspark.sql import functions as F\n\n## @params: [JOB_NAME]\nargs = getResolvedOptions(sys.argv, ['JOB_NAME','S3_INPUT_PATH', 'S3_TARGET_PATH'])\n\nsc = SparkContext()\nglueContext = GlueContext(sc)\nspark = glueContext.spark_session\njob = Job(glueContext)\njob.init(args['JOB_NAME'], args)\n\nsource_file= args['S3_INPUT_PATH']\ntarget_path= args['S3_TARGET_PATH']\n\ndf = glueContext.create_dynamic_frame.from_options(\n    connection_type=\"s3\",\n    connection_options={\"paths\": [source_file]},\n    format=\"csv\",\n    format_options={\"withHeader\": True}\n).toDF()\n\n# Primeira tarefa\ndf.printSchema()\n\n# Altera para maiúsculo\ndf_upper = df.withColumn('nome', F.upper(F.col('nome')))\n\n# Contagem de linhas\nprint(f\"Número total de linhas: {df_upper.count()}\")\n\n# Agrupando os dados do dataframe pelas colunas ano e sexo\ngrouped_df = df_upper.groupBy('ano', 'sexo').agg(F.count('*').alias('count')).orderBy(F.desc('ano'))\ngrouped_df.show()\n\n# Nome feminino com mais registros e qual o ano respectivo\ntop_female_name = df_upper.filter(F.col('sexo') == 'F').groupBy('nome', 'ano').agg(F.sum('total').alias('total')).orderBy(F.desc('total')).first()\nprint(f\"Top female name: {top_female_name['nome']} in {top_female_name['ano']} with {top_female_name['total']} occurrences\")\n\n# Nome masculino com mais registros e qual o ano respectivo\ntop_male_name = df_upper.filter(F.col('sexo') == 'M').groupBy('nome', 'ano').agg(F.sum('total').alias('total')).orderBy(F.desc('total')).first()\nprint(f\"Top male name: {top_male_name['nome']} in {top_male_name['ano']} with {top_male_name['total']} occurrences\")\n\n# total de registros masculinos e femininos em cada ano do dataframe (Exibe apenas as 10 primeiras linhas)\ntotal_by_year = df_upper.groupBy('ano').agg(F.sum('total').alias('total')).orderBy(F.asc('ano'))\ntotal_by_year.show(10)\n\n# Escreve o dataframe com os valores de nome maiúsculos no S3\ndf_upper.write.mode('overwrite') \\\n    .partitionBy('sexo', 'ano') \\\n    .json(target_path)\n    \njob.commit()"
+}
