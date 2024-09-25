@@ -8,10 +8,10 @@ Houve uma alteração nas perguntas a serem respondidas no desafio final e agora
 2. Quais são os filmes de maior popularidade no século XXI (2000-2022)?
 
 ### Sumário para identificação de cada arquivo e sua função
-[Função lambda utilizada para fazer a requisição dos dados de séries](./lambda_function.py)
-[Arquivo referente a validação das chaves da API TMDB](./script_autenticacao_tmdb.py)
-[Arquivo com script para identificar todos os ID's e assim pegar o número dos gêneros Romance/Drama](./scritp_genero_id.py)
-[Arquivo python com código utilizado para requisição dos dados e gravação no S3](./script_lambda_tmdb.py)
+- [Função lambda utilizada para fazer a requisição dos dados de séries](./lambda_function.py)
+- [Arquivo referente a validação das chaves da API TMDB](./script_autenticacao_tmdb.py)
+- [Arquivo com script para identificar todos os ID's e assim pegar o número dos gêneros Romance/Drama](./scritp_genero_id.py)
+- [Arquivo python com código utilizado para requisição dos dados e gravação no S3](./script_lambda_tmdb.py)
 
 
 
