@@ -152,10 +152,10 @@ def coleta_dados_e_salva(genero_id, data_maxima="2022-12-31"):
 
 ### Evidências de execuções dos scripts
 
-[Validação da chave do meu usuário com sucesso](../Desafio/Evidencias/sucesso%20na%20validação%20da%20API.png)
-[Trazendo ID's de cada gênero para poder saber qual utilizar](../Desafio/Evidencias/script%20para%20consulta%20dos%20gêneros.png)
-[Execução do script que coleta os dados dos filmes e grava no S3](../Desafio/Evidencias/coleta%20concluída%20TMDB.png)
-[Arquivo JSON gravado no S3 referente aos filmes](../Desafio/Evidencias/arquivo%20da%20requisição%20TMDB%20salvo%20no%20bucket.png)
-[Arquivo JSON gravado no S3 referente aos series](../Desafio/Evidencias/arquivo%20JSON%20series%20S3.png)
-[Criando arquivo com módulo request para inserir na Layer](../Desafio/Evidencias/criando%20pasta%20com%20módulo%20request%20para%20layer.png)
-[Execução da função lambda que traz os dados das séries com sucesso](../Desafio/Evidencias/execução%20concluida%20lambda-series.png)
+- [Validação da chave do meu usuário com sucesso](../Desafio/Evidencias/sucesso%20na%20validação%20da%20API.png)
+- [Trazendo ID's de cada gênero para poder saber qual utilizar](../Desafio/Evidencias/script%20para%20consulta%20dos%20gêneros.png)
+- [Execução do script que coleta os dados dos filmes e grava no S3](../Desafio/Evidencias/coleta%20concluída%20TMDB.png)
+- [Arquivo JSON gravado no S3 referente aos filmes](../Desafio/Evidencias/arquivo%20da%20requisição%20TMDB%20salvo%20no%20bucket.png)
+- [Arquivo JSON gravado no S3 referente aos series](../Desafio/Evidencias/arquivo%20JSON%20series%20S3.png)
+- [Criando arquivo com módulo request para inserir na Layer](../Desafio/Evidencias/criando%20pasta%20com%20módulo%20request%20para%20layer.png)
+- [Execução da função lambda que traz os dados das séries com sucesso](../Desafio/Evidencias/execução%20concluida%20lambda-series.png)
