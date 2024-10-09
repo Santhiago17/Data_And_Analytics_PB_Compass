@@ -1,0 +1,54 @@
+{
+	"jobConfig": {
+		"name": "processa_arquivo_json",
+		"description": "",
+		"role": "arn:aws:iam::009160030622:role/service-role/AWSGlueServiceRole",
+		"command": "glueetl",
+		"version": "3.0",
+		"runtime": null,
+		"workerType": "G.1X",
+		"numberOfWorkers": 2,
+		"maxCapacity": 2,
+		"jobRunQueuingEnabled": false,
+		"maxRetries": 0,
+		"timeout": 58,
+		"maxConcurrentRuns": 1,
+		"security": "none",
+		"scriptName": "processa_arquivo_json.py",
+		"scriptLocation": "s3://aws-glue-assets-009160030622-us-east-1/scripts/",
+		"language": "python-3",
+		"spark": true,
+		"sparkConfiguration": "standard",
+		"jobParameters": [
+			{
+				"key": "--S3_INPUT_PATH",
+				"value": "s3://data-lake-santhiago-santos/Raw/TMDB/JSON/2024/09/22/",
+				"existing": false
+			},
+			{
+				"key": "--S3_OUTPUT_PATH",
+				"value": "s3://data-lake-santhiago-santos/Trusted/TMDB/parquet/2024/10/03",
+				"existing": false
+			}
+		],
+		"tags": [],
+		"jobMode": "DEVELOPER_MODE",
+		"createdOn": "2024-10-03T18:36:54.446Z",
+		"developerMode": true,
+		"connectionsList": [],
+		"temporaryDirectory": "s3://aws-glue-assets-009160030622-us-east-1/temporary/",
+		"logging": true,
+		"glueHiveMetastore": true,
+		"etlAutoTuning": true,
+		"metrics": true,
+		"observabilityMetrics": true,
+		"bookmark": "job-bookmark-disable",
+		"sparkPath": "s3://aws-glue-assets-009160030622-us-east-1/sparkHistoryLogs/",
+		"flexExecution": false,
+		"minFlexWorkers": null,
+		"maintenanceWindow": null
+	},
+	"hasBeenSaved": false,
+	"usageProfileName": null,
+	"script": "import sys\r\nfrom awsglue.transforms import *\r\nfrom awsglue.utils import getResolvedOptions\r\nfrom pyspark.context import SparkContext\r\nfrom awsglue.context import GlueContext\r\nfrom awsglue.job import Job\r\nimport pyspark.sql.functions as F\r\n\r\n# Obtendo os parâmetros do job\r\nargs = getResolvedOptions(sys.argv, ['JOB_NAME', 'S3_INPUT_PATH', 'S3_OUTPUT_PATH'])\r\n\r\nsc = SparkContext()\r\nglueContext = GlueContext(sc)\r\nspark = glueContext.spark_session\r\njob = Job(glueContext)\r\njob.init(args['JOB_NAME'], args)\r\n\r\n# Caminhos de entrada e saída\r\nsource_file = args['S3_INPUT_PATH']\r\noutput_path = args['S3_OUTPUT_PATH']  \r\n\r\n# Lendo os dados JSON\r\ndf = glueContext.create_dynamic_frame.from_options(\r\n    connection_type=\"s3\",\r\n    connection_options={\"paths\": [source_file]},\r\n    format=\"json\"\r\n).toDF()\r\n\r\n# Filtro e tratamento de colunas\r\ndf_filtered = df.filter(\r\n    (F.col(\"release_date\").isNotNull()) & \r\n    (F.col(\"vote_average\") > 0) &\r\n    (F.size(F.col(\"genre_ids\")) > 0)  # Garantindo que existam gêneros\r\n)\r\n\r\n# Removendo colunas desnecessárias\r\ndf_cleaned = df_filtered.drop(\"overview\", \"poster_path\", \"video\", \"adult\")\r\n\r\n# Preenchendo valores ausentes\r\ndf_cleaned = df_cleaned.fillna({\r\n    \"release_date\": \"Desconhecido\"  # Preenche data ausente com 'Desconhecido' \r\n})\r\n\r\n# Conversão de colunas de interesse\r\ndf_cleaned = df_cleaned.withColumn(\"release_date\", F.col(\"release_date\").cast(\"date\"))\r\n\r\n# Escrevendo o DataFrame tratado no formato Parquet no caminho configurado\r\ndf_cleaned.write.mode('overwrite').parquet(output_path)\r\n\r\n# Finalizando o job\r\njob.commit()\r\n"
+}
