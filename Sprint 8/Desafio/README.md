@@ -2,7 +2,16 @@
 
 Ambos os códigos são responsáveis por processar arquivos, sendo o primeiro um arquivo JSON (proveniente da API do TMDB), e o segundo um arquivo CSV. Abaixo segue uma explicação detalhada de cada um.
 
----
+#### A pergunta que será respondida no desafio final é:
+
+- Quais são os filmes (Drama/Romance) de maior popularidade no século XXI (2000-2022)?
+
+Decidi focar em apenas uma pergunta e além de responde-la, pretendo trazer alguns dados importantes que façam sentido para este contexto,
+como atores de maior popularidade entre estes filmes, países,idioma dos filmes e etc..
+
+
+[Arquivo do JOB utilizado para processar o CSV](./processa_arquivos_csv.json)
+[Arquivo do JOB utilizado para processar o JSON do TMDB](./processa_arquivo_json.json)
 
 ### **Código 1: Processamento de Arquivo JSON (TMDB)**
 
@@ -121,4 +130,9 @@ Este código realiza o processamento de um arquivo CSV contendo informações de
 - **Parquet**: Assim como no código anterior, o formato Parquet é usado para armazenar os dados tratados de maneira eficiente.
 
 ---
+
+### AWS Athena (Verificando a integridade dos dados processados)
+
+[Tabela referente ao arquivo oriundo do TMDB](image-10.png)
+[Tabela referente ao arquivo oriundo do CSV](image-11.png)
 

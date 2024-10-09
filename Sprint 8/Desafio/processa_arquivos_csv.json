@@ -1,0 +1,55 @@
+{
+	"jobConfig": {
+		"name": "processa_arquivos_csv",
+		"description": "Job para processar os arquivos CSV referentes ao desafio final.",
+		"role": "arn:aws:iam::009160030622:role/service-role/AWSGlueServiceRole",
+		"command": "glueetl",
+		"version": "3.0",
+		"runtime": null,
+		"workerType": "G.1X",
+		"numberOfWorkers": 2,
+		"maxCapacity": 2,
+		"jobRunQueuingEnabled": false,
+		"maxRetries": 0,
+		"timeout": 59,
+		"maxConcurrentRuns": 1,
+		"security": "none",
+		"scriptName": "processa_arquivos_csv.py",
+		"scriptLocation": "s3://aws-glue-assets-009160030622-us-east-1/scripts/",
+		"language": "python-3",
+		"spark": false,
+		"sparkConfiguration": "standard",
+		"jobParameters": [
+			{
+				"key": "--S3_INPUT_PATH",
+				"value": "s3://data-lake-santhiago-santos/Raw/Local/CSV/Movies/2024/09/02/",
+				"existing": false
+			},
+			{
+				"key": "--S3_OUTPUT_PATH",
+				"value": "s3://data-lake-santhiago-santos/Trusted/CSV/parquet/2024/10/03",
+				"existing": false
+			}
+		],
+		"tags": [],
+		"jobMode": "DEVELOPER_MODE",
+		"createdOn": "2024-10-01T17:24:18.225Z",
+		"developerMode": true,
+		"connectionsList": [],
+		"temporaryDirectory": "s3://aws-glue-assets-009160030622-us-east-1/temporary/",
+		"logging": true,
+		"glueHiveMetastore": true,
+		"etlAutoTuning": true,
+		"metrics": true,
+		"observabilityMetrics": true,
+		"bookmark": "job-bookmark-disable",
+		"sparkPath": "s3://aws-glue-assets-009160030622-us-east-1/sparkHistoryLogs/",
+		"flexExecution": false,
+		"minFlexWorkers": null,
+		"maintenanceWindow": null,
+		"pythonPath": null
+	},
+	"hasBeenSaved": false,
+	"usageProfileName": null,
+	"script": "import sys\r\nfrom awsglue.transforms import *\r\nfrom awsglue.utils import getResolvedOptions\r\nfrom pyspark.context import SparkContext\r\nfrom awsglue.context import GlueContext\r\nfrom awsglue.job import Job\r\nimport pyspark.sql.functions as F\r\n\r\n# Obtendo os parâmetros do job\r\nargs = getResolvedOptions(sys.argv, ['JOB_NAME', 'S3_INPUT_PATH', 'S3_OUTPUT_PATH'])\r\n\r\nsc = SparkContext()\r\nglueContext = GlueContext(sc)\r\nspark = glueContext.spark_session\r\njob = Job(glueContext)\r\njob.init(args['JOB_NAME'], args)\r\n\r\n# Caminhos de entrada e saída\r\nsource_file = args['S3_INPUT_PATH']\r\noutput_path = args['S3_OUTPUT_PATH']\r\n\r\n# Lendo o arquivo CSV como texto bruto (linhas)\r\nraw_rdd = spark.sparkContext.textFile(source_file)\r\n\r\n# Separando a primeira linha como cabeçalho\r\nheader = raw_rdd.first()\r\n\r\n# Dividindo o cabeçalho em colunas, baseado no delimitador '|'\r\ncolumns = header.split('|')\r\n\r\n# Remover a primeira linha (cabeçalho) do RDD\r\ndata_rdd = raw_rdd.filter(lambda row: row != header)\r\n\r\n# Função para ajustar o número de colunas nas linhas\r\ndef adjust_row(row):\r\n    values = row.split('|')\r\n    if len(values) < len(columns):\r\n        # Adiciona valores vazios se houver menos valores que colunas\r\n        values += [''] * (len(columns) - len(values))\r\n    elif len(values) > len(columns):\r\n        # Trunca os valores se houver mais colunas que o necessário\r\n        values = values[:len(columns)]\r\n    return values\r\n\r\n# Ajustando cada linha do RDD para ter o número correto de colunas\r\nadjusted_rdd = data_rdd.map(adjust_row)\r\n\r\n# Criar um DataFrame a partir dos dados ajustados\r\ndf = adjusted_rdd.toDF(columns)\r\n\r\n# Verificando se as colunas foram carregadas corretamente\r\nif 'genero' in df.columns:\r\n    # Prosseguir com a limpeza e filtragem como antes\r\n    df_clean = df.filter(df['genero'].isNotNull())\r\n\r\n    # Filtrando os gêneros 'Drama' e 'Romance'\r\n    df_filtered = df_clean.filter(F.lower(F.col('genero')).isin('drama', 'romance'))\r\n\r\n    # Substituindo valores ausentes em colunas relevantes com valores padrão ou 'NULL'\r\n    df_cleaned = df_filtered.fillna({\r\n        'notamedia': 0,  # Preenche valores ausentes de nota com 0\r\n        'numerovotos': 0,  # Preenche número de votos ausentes com 0\r\n        'tempominutos': 0,  # Preenche tempo de filme ausente com 0\r\n        'anolancamento': 'Desconhecido'  # Preenche ano de lançamento ausente com 'Desconhecido'\r\n    })\r\n\r\n    # Tratamento de colunas de ano para garantir integridade\r\n    df_cleaned = df_cleaned.withColumn(\"anolancamento\", F.when(F.col(\"anolancamento\").cast(\"int\").isNotNull(), F.col(\"anolancamento\")).otherwise(None))\r\n\r\n    # Convertendo o ano de nascimento e falecimento para tipos inteiros\r\n    df_cleaned = df_cleaned.withColumn(\"anonascimento\", F.col(\"anonascimento\").cast(\"int\"))\r\n    df_cleaned = df_cleaned.withColumn(\"anofalecimento\", F.col(\"anofalecimento\").cast(\"int\"))\r\n\r\n    # Escrevendo o DataFrame tratado no formato Parquet no caminho configurado\r\n    df_cleaned.write.mode('overwrite').parquet(output_path)\r\n\r\nelse:\r\n    raise ValueError(f\"A coluna 'genero' não foi encontrada no DataFrame. Colunas disponíveis: {df.columns}\")\r\n\r\n# Finalizando o job\r\njob.commit()\r\n"
+}
