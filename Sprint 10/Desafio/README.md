@@ -1,19 +1,24 @@
 ## Desafio sprint 10 (Visualização dos dados através do Dashboard)
 
-Por fim, através do dashboard no AWS Quicksight, consegui reponder a pergunta principal que embasa a minha análise que seria:
-"Quais os filmes do gênero de Drama e Romance com a maior popularidade do século XXI (2000-2022)".
+Por fim, através do dashboard no AWS QuickSight, consegui responder à pergunta principal que embasa a minha análise:
 
-Através deste dashboard, é possível visualizar insights valiosos sobre a popularidade de filmes nesses gêneros ao longo do século XXI. Os dados foram cuidadosamente coletados e tratados, possibilitando uma análise clara das tendências e dos filmes mais populares nesse período.
+**"Quais são os filmes do gênero de Drama e Romance com a maior popularidade do século XXI (2000-2022)?"**
 
-**Abaixo, estão alguns prints do dashboard para ilustrar as informações apresentadas.**
+Através deste dashboard, é possível visualizar insights valiosos sobre a popularidade de filmes nesses gêneros ao longo do século XXI. Os dados foram cuidadosamente coletados e tratados, permitindo uma análise clara das tendências e dos filmes mais populares nesse período.
 
-- [Dashboard parte - 1](./Evidencias/dashboard%20pt-1.png)
-- [Dashboard parte - 2](./Evidencias/dashboard%20pt-2.png)
+### Evidências do Dashboard
 
-**Abaixo, o print do dataset utilizado para construção do dashboard**
+Abaixo estão alguns prints do dashboard para ilustrar as informações apresentadas:
 
-- [DataSet](./Evidencias/dataset%20utilizado%20para%20criação%20do%20dashboard.png)
+- ![Dashboard parte - 1](./Evidencias/dashboard%20pt-1.png)
+- ![Dashboard parte - 2](./Evidencias/dashboard%20pt-2.png)
 
-**Abaixo está a tabela fato que utilizei para construir o dataset**
+### Dataset e Tabela Fato
 
-- [Tabela fato utilizada para construção do dataset](./Evidencias/dataset%20utilizado%20para%20criação%20do%20dashboard.png)
+Abaixo, o print do dataset utilizado para construção do dashboard:
+
+- ![DataSet](./Evidencias/dataset%20utilizado%20para%20criação%20do%20dashboard.png)
+
+Abaixo está a tabela fato que utilizei para construir o dataset:
+
+- ![Tabela fato utilizada para construção do dataset](./Evidencias/tabela%20fato%20utilizada%20para%20criação%20do%20dashboard.png)
