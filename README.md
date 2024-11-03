@@ -14,4 +14,4 @@ Olá, me chamo Santhiago, tenho 24 anos e sou residente da cidade de João Pesso
 * [Sprint 7](./Sprint%207/README.md)
 * [Sprint 8](./Sprint%208/README.md)
 * [Sprint 9](./Sprint%209/README.md)
-* [Sprint 10](./Sprint%210/README.md)
+* [Sprint 10](./Sprint%2010/README.md)
