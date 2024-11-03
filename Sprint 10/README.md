@@ -1,19 +1,19 @@
-## Desafio sprint 10 (Visualização dos dados através do Dashboard)
+### Resumo da Sprint: Análise de Popularidade de Filmes no Amazon QuickSight
 
-Por fim, através do dashboard no AWS Quicksight, consegui reponder a pergunta principal que embasa a minha análise que seria:
-"Quais os filmes do gênero de Drama e Romance com a maior popularidade do século XXI (2000-2022)".
+Nesta sprint, trabalhamos na construção de um dashboard interativo no Amazon QuickSight, com foco em responder à seguinte pergunta de negócio:
 
-Através deste dashboard, é possível visualizar insights valiosos sobre a popularidade de filmes nesses gêneros ao longo do século XXI. Os dados foram cuidadosamente coletados e tratados, possibilitando uma análise clara das tendências e dos filmes mais populares nesse período.
+**“Quais são os filmes do gênero Drama e Romance com maior popularidade entre 2000 e 2022?”**
 
-**Abaixo, estão alguns prints do dashboard para ilustrar as informações apresentadas.**
+#### Aprendizados-Chave
 
-[Dashboard parte - 1](./Evidencias/dashboard%20pt-1.png)
-[Dashboard parte - 2](./Evidencias/dashboard%20pt-2.png)
+1. **Uso do Amazon QuickSight para Visualização e Filtragem de Dados**:
+    
+    - Aprendemos a utilizar o Amazon QuickSight para criar visualizações dinâmicas e explorar dados de forma interativa, o que facilitou a análise dos filmes mais populares dentro de critérios específicos, como gênero e período.
+2. **Configuração de Filtros Avançados**:
+    
+    - Ganhamos experiência na aplicação de filtros de Top 10, agrupamentos e modos de agregação, essenciais para a exibição dos dados mais relevantes no dashboard. Isso incluiu a resolução de problemas, como a limitação de exibição para dados brutos e a configuração adequada do modo de agregação.
+3. **Estruturação e Documentação com Markdown**:
+    
+    - Praticamos a criação de um README informativo e visual, incluindo a inserção de imagens diretamente no arquivo para ilustrar os insights do dashboard. Isso ajudou a organizar as informações de forma clara e acessível para futuros usuários do repositório.
 
-**Abaixo, o print do dataset utilizado para construção do dashboard**
-
-[DataSet](./Evidencias/dataset%20utilizado%20para%20criação%20do%20dashboard.png)
-
-**Abaixo está a tabela fato que utilizei para construir o dataset**
-
-[Tabela fato utilizada para construção do dataset](./Evidencias/dataset%20utilizado%20para%20criação%20do%20dashboard.png)
+Essa sprint proporcionou uma experiência prática na criação de dashboards com QuickSight, na configuração de filtros complexos e na documentação de projetos de forma clara e visual. Esses aprendizados facilitarão futuras análises de dados e projetos de visualização.
