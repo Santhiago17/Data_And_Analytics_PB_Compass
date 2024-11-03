@@ -10,15 +10,15 @@ Através deste dashboard, é possível visualizar insights valiosos sobre a popu
 
 Abaixo estão alguns prints do dashboard para ilustrar as informações apresentadas:
 
-- ![Dashboard parte - 1](./Evidencias/dashboard%20pt-1.png)
-- ![Dashboard parte - 2](./Evidencias/dashboard%20pt-2.png)
+ ![Dashboard parte - 1](../Evidencias/dashboard%20pt-1.png)
+ ![Dashboard parte - 2](../Evidencias/dashboard%20pt-2.png)
 
 ### Dataset e Tabela Fato
 
-Abaixo, o print do dataset utilizado para construção do dashboard:
+**Abaixo, o print do dataset utilizado para construção do dashboard:**
 
-- ![DataSet](./Evidencias/dataset%20utilizado%20para%20criação%20do%20dashboard.png)
+ ![DataSet](../Evidencias/dataset%20utilizado%20para%20criação%20do%20dashboard.png)
 
-Abaixo está a tabela fato que utilizei para construir o dataset:
+**Abaixo está a tabela fato que utilizei para construir o dataset:**
 
-- ![Tabela fato utilizada para construção do dataset](./Evidencias/tabela%20fato%20utilizada%20para%20criação%20do%20dashboard.png)
+![Tabela fato utilizada para construção do dataset](../Evidencias/Tabela%20fato%20utilizada%20para%20o%20dataset.png)
