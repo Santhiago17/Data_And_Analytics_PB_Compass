@@ -1,8 +1,31 @@
-## Apresentação
 
-Olá, me chamo Santhiago, tenho 24 anos e sou residente da cidade de João Pessoa - PB. Atualmente, sou graduando do 3° período do curso de Sistemas para Internet na faculdade UNIESP. Esta tem sido minha primeira experência profissional voltada para a área de engenharia de dados, e estou bastante empolgado para me aprofundar neste mundo e poder desenvolver habilidades técnicas e comportamentais que sejam relevantes no ambiente corporativo e profissional. No meu tempo livre, gosto de consumir conteúdo digital (séries, filmes e podcast's), além de tocar guitarra principalmente nos finais de semana.
+## Dashboard construído no AWS QuickSight para a seguinte análise:
+
+**"Quais são os filmes do gênero de Drama e Romance com a maior popularidade do século XXI (2000-2022)?"**
+
+Através deste dashboard, é possível visualizar insights valiosos sobre a popularidade de filmes nesses gêneros ao longo do século XXI. Os dados foram cuidadosamente coletados e tratados, permitindo uma análise clara das tendências e dos filmes mais populares nesse período.
+
+### Evidências do Dashboard
+
+Abaixo estão alguns prints do dashboard para ilustrar as informações apresentadas:
+
+ ![Dashboard parte - 1](./Sprint%2010/Evidencias/dashboard%20pt-1.png)
+ ![Dashboard parte - 2](./Sprint%2010/Evidencias/dashboard%20pt-2.png)
+
+### Dataset e Tabela Fato
+
+**Abaixo, o print do dataset utilizado para construção do dashboard:**
+
+ ![DataSet](./Sprint%2010/Evidencias/dataset%20utilizado%20para%20criação%20do%20dashboard.png)
+
+**Abaixo está a tabela fato que utilizei para construir o dataset:**
+
+![Tabela fato utilizada para construção do dataset](./Sprint%2010/Evidencias/Tabela%20fato%20utilizada%20para%20o%20dataset.png)
 
 
+
+## Para acesso a demais etapas do processo de desenvolvimento deste projeto, acesse os links abaixo.
+ 
 ### Sprints
 
 * [Sprint 1](./Sprint%201/README.md)
